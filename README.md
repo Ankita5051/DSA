@@ -1,2 +1,2 @@
 # DSA
-DSA using C++
+DSA using python

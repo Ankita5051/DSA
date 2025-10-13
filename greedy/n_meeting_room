@@ -1,0 +1,20 @@
+#TUF day-8.1
+start=[3,1, 0, 5, 8, 5]
+end=[ 4,2, 6, 7, 9, 9]
+        #your code goes here
+ls=[]
+for i in range(len(start)):
+    ls.append((start[i],end[i],i))
+ls=sorted(ls,key= lambda x:x[1])
+print(ls)
+
+res=1
+
+freetime=ls[0][1]
+
+for i in ls:
+    if i[0]>=freetime:
+        res+=1
+        freetime=i[1]
+print(res)
+    
