@@ -19,7 +19,7 @@ class Solution:
             rank[y_par]+=1
 
 
-    def equationsPossible(self, equations: List[str]) -> bool:
+    def equationsPossible(self, equations: list[str]) -> bool:
         parent=[i for i in range(26)]
         rank=[0]*26
         for eq in equations:

@@ -21,7 +21,7 @@ class Solution:
             rank[y_par]+=1
         return 1
 
-    def makeConnected(self, n: int, connections: List[List[int]]) -> int:
+    def makeConnected(self, n: int, connections: list[list[int]]) -> int:
         #find number of component
         if len(connections)<n-1:
             return -1
