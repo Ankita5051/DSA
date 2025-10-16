@@ -1,0 +1,42 @@
+NOTES LOGIC BEHIND EVERYTHING
+INFIX TO POSTFIX
+1-If we get any char then we straight up insert as all +- symbols go at the end
+2-IF we get any opening bracket then we insert it
+3-If we get any closing bracket we pop all the bw of opening and closing bracket
+4-If we encounter any operators then we see the precedence and
+if PRECEDENCE of ch <= st.top() then we pop else insert
+example * < + this is not true hence stack + *
+example + < * this is true hence stack +
+5- While stack is not empty empty the stack and get the ans
+
+INFIX TO PREFIX
+1-We reverse the string and change the brackets direction
+2- Apply inifx to postfix with
+3- One changed condition PRECEDENCE of ch < st.top()
+4- Reverse the ans
+
+POSTFIX TO INFIX
+1- start from beginning as operators end mai honge
+2- if any operand then push in stack
+ab+ ko a+b
+stack - | a b + op2 + op1
+3- op2 operator op1 when op1 = first element of stack and op2 = second element of stack
+
+PREFIX TO INFIX
+1 - start from last as operators opening mai honge
+2 - if any operand then push in the stack
++ab ko a+b
+stack | b a + op1 + op2
+3 - op1 operator op2 when op1 = first element of stack and op2 = second element of stack
+
+PREFIX TO POSTFIX
+1 - start from end as operators opening mai honge
+2 - if any operand then push in stack
++ab ko ab+
+stack | b a + op1 op2 operator ;
+
+POSTFIX TO PREFIX
+1 - start from beginning as operators end mai honge
+2 - if any operand then push it into stack
+ab+ ko +ab
+stack | a b + operator op2 op1

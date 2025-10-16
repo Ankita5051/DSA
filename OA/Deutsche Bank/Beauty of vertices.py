@@ -1,3 +1,4 @@
+#topic: DSU
 class Solution:
     def find(self,x,parent):
         if x==parent[x]:

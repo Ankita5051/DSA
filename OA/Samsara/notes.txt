@@ -1,0 +1,67 @@
+The Strange Array – Mathematical Explanation and Logic
+------------------------------------------------------
+
+🧮 What really happens mathematically?
+
+Let’s represent the total effect after several operations.
+
+Say we choose index i exactly x_i times.
+
+Then:
+
+- Element A[i] will increase by K × x_i every time it’s chosen.
+- But it also decreases by K × (sum of all other x_j) because every time any other index j ≠ i is chosen, A[i] gets reduced by K.
+
+So finally:
+A[i]_final = A[i] + K × x_i − K × (S − x_i)
+where S = Σ_j x_j.
+
+Simplify:
+A[i]_final = A[i] + 2K × x_i − K × S
+
+
+🧩 Step 2. Observing the pattern
+
+The term (−K × S) is common to all elements — it doesn’t affect distinctness (it just shifts the entire array by a constant).
+
+Thus, the relative differences between elements depend only on:
+A[i] + 2K × x_i
+
+So, effectively, we can transform each A[i] by adding multiples of 2K (since x_i can be any integer ≥ 0).
+
+That means:
+A[i]_final ≡ A[i] (mod 2K)
+
+
+🧠 Step 3. Core Insight (Modular Equivalence)
+
+Two elements A[i] and A[j] can become equal if and only if:
+A[i] ≡ A[j] (mod 2K)
+
+Because by adjusting x_i and x_j, we can align both to the same remainder modulo 2K.
+
+
+✅ Step 4. Therefore
+
+To minimize the number of distinct elements, we want to group elements with the same remainder modulo 2K.
+
+The element that occurs most often modulo 2K will give us the maximum count possible.
+
+So, the final answer is:
+Max Frequency = max_{r ∈ [0, 2K−1]} (count of elements where A[i] mod (2K) = r)
+
+
+⚙️ Step 5. Implementation Plan
+
+Algorithm:
+
+1. Read N and K.
+2. Read array A.
+3. If K = 0, then no change is possible → return frequency of most common element.
+4. Otherwise:
+   - Compute A[i] % (2*K) for each i.
+   - Count frequency of each remainder.
+   - Output the maximum count.
+
+------------------------------------------------------
+This summarizes the full logic and intuition of “The Strange Array” problem.
