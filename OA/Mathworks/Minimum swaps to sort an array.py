@@ -1,22 +1,22 @@
 class Solution:
     def minSwaps(self, arr):
         n = len(arr)
-        # Step 1: Pair values with their original indices
+        #Pair values with their original indices
         arr_pos = [(val, i) for i, val in enumerate(arr)]
 
-        # Step 2: Sort by value
+        #Sort by value
         arr_pos.sort(key=lambda x: x[0])
 
         visited = [False] * n
         swaps = 0
 
-        # Step 3: Traverse each element
+        # Traverse each element
         for i in range(n):
             # If already visited or already in correct place
             if visited[i] or arr_pos[i][1] == i:
                 continue
 
-            # Step 4: Compute cycle size
+            # Compute cycle size
             cycle_len = 0
             j = i
             while not visited[j]:
